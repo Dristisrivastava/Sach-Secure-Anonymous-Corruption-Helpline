@@ -37,3 +37,7 @@ Return count of incidents by region.
    - cd frontend
    - npm install
    - npm start
+
+- git add .
+- git commit -m "Your update message"
+- git push
