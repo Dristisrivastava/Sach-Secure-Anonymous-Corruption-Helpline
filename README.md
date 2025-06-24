@@ -1,118 +1,118 @@
-# SACH - Secure Anonymous Corruption Helpline
+🛡️ SACH - Secure Anonymous Corruption Helpline
+SACH is a full-stack web application that allows users to report corruption anonymously and securely. It features a robust backend API, user authentication, and a clean, responsive frontend built with React.
 
-SACH is a full-stack web application that allows users to **report corruption anonymously**. It features a secure backend API, user authentication, and a user-friendly frontend built with React.
-
----
-
-## 📁 Project Structure
-
-corruptwatch/
-├── backend/ # Node.js + Express backend
-├── frontend/ # React frontend
-├── README.md
-
-yaml
+📁 Project Structure
+bash
 Copy
 Edit
+corruptwatch/
+├── backend/   # Node.js + Express backend
+├── frontend/  # React frontend
+├── README.md
+🛠️ Backend (API Server)
+🔧 Technologies Used
+Node.js, Express.js
 
----
+MongoDB with Mongoose
 
-## 🛠 Backend (API Server)
+JWT for authentication
 
-### 📦 Technologies Used:
-- **Node.js**, **Express**
-- **MongoDB** with **Mongoose**
-- **JWT** for authentication
-- **bcrypt** for password hashing
+bcrypt for password hashing
 
----
+🔐 Authentication Routes
+POST /api/auth/signup
+Registers a new user.
 
-### 📌 API Endpoints
+Request:
 
-#### **Auth Routes**
+json
+Copy
+Edit
+{
+  "username": "john_doe",
+  "password": "securePassword"
+}
+Response:
 
-- `POST /api/auth/signup`
-  - Registers a new user.
-  - **Request:**
-    ```json
-    {
-      "username": "john_doe",
-      "password": "securePassword"
-    }
-    ```
-  - **Response:**
-    ```json
-    {
-      "message": "User created successfully"
-    }
-    ```
+json
+Copy
+Edit
+{
+  "message": "User created successfully"
+}
+POST /api/auth/login
+Logs in a user and returns a JWT token.
 
-- `POST /api/auth/login`
-  - Logs in a user.
-  - **Request:**
-    ```json
-    {
-      "username": "john_doe",
-      "password": "securePassword"
-    }
-    ```
-  - **Response:**
-    ```json
-    {
-      "token": "jwt_token_here",
-      "user": {
-        "_id": "...",
-        "username": "john_doe"
-      }
-    }
-    ```
+Request:
 
----
+json
+Copy
+Edit
+{
+  "username": "john_doe",
+  "password": "securePassword"
+}
+Response:
 
-#### **Report Routes**
+json
+Copy
+Edit
+{
+  "token": "jwt_token_here",
+  "user": {
+    "_id": "...",
+    "username": "john_doe"
+  }
+}
+📢 Report Routes
+POST /api/report
+Submits an anonymous corruption report.
 
-- `POST /api/report`
-  - Submits a corruption report (anonymous).
-  - **Request:**
-    ```json
-    {
-      "location": "City Name",
-      "description": "Bribery at local office"
-    }
-    ```
-  - **Response:**
-    ```json
-    {
-      "message": "Report submitted successfully"
-    }
-    ```
+Request:
 
-- `GET /api/report`
-  - Admin-only. Returns all reports.
+json
+Copy
+Edit
+{
+  "location": "City Name",
+  "description": "Bribery at local office"
+}
+Response:
 
----
+json
+Copy
+Edit
+{
+  "message": "Report submitted successfully"
+}
+GET /api/report (Admin Only)
+Returns all submitted reports.
 
-## 💾 Database
+💾 Database Schema
+Using MongoDB Atlas (cloud-hosted):
 
-- **MongoDB Atlas** (cloud-based MongoDB)
-- Connected using **Mongoose**
-- Collections:
-  - `users`: Stores usernames & hashed passwords.
-  - `reports`: Stores anonymous corruption reports.
+Collections:
 
----
+users: Stores usernames and hashed passwords.
 
-## ▶️ Running the Backend
+reports: Stores anonymous corruption reports.
 
-```bash
+▶️ Running the Application
+🔙 Backend Server
+bash
+Copy
+Edit
 cd backend
 npm install
 npm start
-The server will run at http://localhost:5000
-```
-## ▶️ Running the Frontend
-```bash
+Runs on: http://localhost:5000
+
+🖥️ Frontend (React)
+bash
+Copy
+Edit
 cd frontend
 npm install
 npm start
-The React app runs at http://localhost:3000
+Runs on: http://localhost:3000
+
