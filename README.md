@@ -1,33 +1,41 @@
-🛡️ SACH - Secure Anonymous Corruption Helpline
-SACH is a full-stack web application that allows users to report corruption anonymously and securely. It features a robust backend API, user authentication, and a clean, responsive frontend built with React.
+# 🛡️ SACH - Secure Anonymous Corruption Helpline
 
-📁 Project Structure
-bash
+**SACH** is a full-stack web application that allows users to **report corruption anonymously and securely**. It features a robust backend API with user authentication and a clean, responsive frontend built using React.
+
+---
+
+## 📁 Project Structure
+
+corruptwatch/
+├── backend/ # Node.js + Express backend
+├── frontend/ # React frontend
+├── README.md
+
+yaml
 Copy
 Edit
-corruptwatch/
-├── backend/   # Node.js + Express backend
-├── frontend/  # React frontend
-├── README.md
-🛠️ Backend (API Server)
-🔧 Technologies Used
-Node.js, Express.js
 
-MongoDB with Mongoose
+---
 
-JWT for authentication
+## 🛠️ Backend (API Server)
 
-bcrypt for password hashing
+### 🔧 Technologies Used
 
-🔐 Authentication Routes
-POST /api/auth/signup
+- **Node.js** + **Express.js**
+- **MongoDB** with Mongoose
+- **JWT** for authentication
+- **bcrypt** for password hashing
+
+---
+
+## 🔐 Authentication Routes
+
+### `POST /api/auth/signup`  
 Registers a new user.
 
-Request:
+**Request:**
 
-json
-Copy
-Edit
+```json
 {
   "username": "john_doe",
   "password": "securePassword"
@@ -92,10 +100,9 @@ Returns all submitted reports.
 Using MongoDB Atlas (cloud-hosted):
 
 Collections:
+users: Stores usernames and hashed passwords
 
-users: Stores usernames and hashed passwords.
-
-reports: Stores anonymous corruption reports.
+reports: Stores anonymous corruption reports
 
 ▶️ Running the Application
 🔙 Backend Server
@@ -116,3 +123,6 @@ npm install
 npm start
 Runs on: http://localhost:3000
 
+vbnet
+Copy
+Edit
