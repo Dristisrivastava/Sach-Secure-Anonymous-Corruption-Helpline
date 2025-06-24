@@ -22,12 +22,7 @@ mongoose.connect('mongodb+srv://corruptadmin:Dristi_2003@cluster0.orc9g.mongodb.
 .then(async () => {
   console.log("✅ MongoDB connected");
 
-  // Create default admin if not exists
-  const adminExists = await User.findOne({ username: "Dristi" });
-  if (!adminExists) {
-    await User.create({ username: "Dristi", password: "1234", role: "admin" });
-    console.log("✅ Admin user 'Dristi' created.");
-  }
+  
 
   // Start server
   app.listen(5000, () => {
