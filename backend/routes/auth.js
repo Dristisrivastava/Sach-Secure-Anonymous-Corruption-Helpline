@@ -3,7 +3,32 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 
-// Sign-up route
+/**
+ * @swagger
+ * /signup:
+ *   post:
+ *     summary: Create a new user account
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - username
+ *               - password
+ *             properties:
+ *               username:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: User created
+ *       400:
+ *         description: User already exists
+ */
 router.post('/signup', async (req, res) => {
   const { username, password } = req.body;
 
@@ -15,7 +40,41 @@ router.post('/signup', async (req, res) => {
   res.send("User created");
 });
 
-// Login route
+/**
+ * @swagger
+ * /login:
+ *   post:
+ *     summary: Login with username and password
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - username
+ *               - password
+ *             properties:
+ *               username:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Successfully logged in
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 username:
+ *                   type: string
+ *                 role:
+ *                   type: string
+ *       401:
+ *         description: Invalid username or password
+ */
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
 

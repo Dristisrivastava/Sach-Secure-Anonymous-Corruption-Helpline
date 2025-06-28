@@ -1,13 +1,16 @@
 // backend/app.js
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
-
 const app = express();
+
+const setupSwagger = require('./swagger'); // <-- ✅ Add this line
 
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Swagger setup
+setupSwagger(app); // <-- ✅ Add this line
 
 // Routes
 app.use('/api/incidents', require('./routes/incidents'));
