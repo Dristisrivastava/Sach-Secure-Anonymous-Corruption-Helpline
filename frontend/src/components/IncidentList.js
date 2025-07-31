@@ -10,7 +10,7 @@ const [notes, setNotes] = useState({});
     const fetchIncidents = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/incidents${region ? '?region=' + region : ''}`
+          `${process.env.REACT_APP_API_URL}/api/incidents${region ? '?region=' + region : ''}`
         );
         setIncidents(response.data);
       } catch (err) {
@@ -23,7 +23,7 @@ const [notes, setNotes] = useState({});
 
  const verifyIncident = async (id, note) => {
   try {
-    await axios.put(`http://localhost:5000/api/incidents/${id}/verified`, { note });
+    await axios.put(`${process.env.REACT_APP_API_URL}/api/incidents/${id}/verified`, { note });
     setIncidents(prev =>
       prev.map(i => (i._id === id ? { ...i, verified: true, note } : i))
     );
