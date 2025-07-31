@@ -7,7 +7,7 @@ export default function StatusChecker() {
 
   const checkStatus = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/incidents/status/${trackingId}`);
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/incidents/status/${trackingId}`);
       setIncident(res.data);
     } catch {
       alert("Tracking ID not found.");
