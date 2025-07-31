@@ -9,7 +9,7 @@ export default function Signup() {
 
   const handleSignup = async () => {
     try {
-      await axios.post('http://localhost:5000/api/auth/signup', {
+      await axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, {
         username,
         password,
       });
