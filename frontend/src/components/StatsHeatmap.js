@@ -5,7 +5,7 @@ export default function StatsHeatmap() {
   const [stats, setStats] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/incidents/stats')
+    axios.get(`${process.env.REACT_APP_API_URL}/api/incidents/stats`)
       .then(res => setStats(res.data));
   }, []);
 
